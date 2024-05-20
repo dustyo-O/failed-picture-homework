@@ -1,5 +1,4 @@
 const http = require('http');
-const { type } = require('os');
 
 const port = process.env.PORT || 3000;
 const host = '0.0.0.0';
@@ -7,7 +6,7 @@ const host = '0.0.0.0';
 const requestListener = function (req, res) {
     if (req.url === '/') {
         res.writeHead(200, { 'Content-type': 'text/html; charset=utf-8;'});
-        res.write('<h2>Картинка 1</h2><img src="1.svg"><h2>Картинка 2<h2><img src="2.svg"/>');
+        res.write('<h2>Картинка 1</h2><img src="1.svg"><h2>Картинка 2</h2><img src="2.svg"/>');
         res.end();
 
         return;
@@ -84,7 +83,6 @@ const requestListener = function (req, res) {
 };
 
 const server = http.createServer(requestListener);
-
 
 server.listen(port, host, () => {
     console.log(`Server is running on http://${host}:${port}`);
